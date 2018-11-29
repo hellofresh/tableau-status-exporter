@@ -1,6 +1,8 @@
 # tableau-status-exporter
 
-Simple Prometheus exporter for monitoring the status of Tableau Server processes. Tested with Tableau Server 2018.2 running pn a single machine.
+Simple Prometheus exporter for monitoring the status of Tableau Server processes.
+
+Please note: Tested **only** with Tableau Server 2018.2 running on a single machine.
 
 ## What it does
 
