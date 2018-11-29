@@ -12,19 +12,19 @@ Reads and parses the /admin/systeminfo.xml page and exports the number of proces
 
 1. Clone the project
 2. Create config file based on config.yml.template. Configs:
-    * tableau_user and tableau_password: a Tableau Server user with administrative privileges
-    * api_version: REST API version for the Tableau Server version. See https://onlinehelp.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_versions.htm
-    * server_host: Tableau Server hostname, starting with http(s)://
-    * site: The Tableau site to use
-    * exporter_port: Which port to use for the exporter's webserver
-    * log_path: Where to store logs
+    * *tableau_user* and *tableau_password*: a Tableau Server user with administrative privileges
+    * *api_version*: REST API version for the Tableau Server version. See https://onlinehelp.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_versions.htm
+    * *server_host*: Tableau Server hostname, starting with http(s)://
+    * *site*: The Tableau site to use
+    * *exporter_port*: Which port to use for the exporter's webserver
+    * *log_path*: Where to store logs
 3. Install with `pip install <path_to_project>`. Dependencies:
-    * pyyaml: YAML config processing
-    * requests: Accessing the Tableau Server REST API (for login) and the systeminfo.xml page
-    * prometheus_client: Prometheus python client API
-    * twisted: Webserver
+    * *pyyaml*: YAML config processing
+    * *requests*: Accessing the Tableau Server REST API (for login) and the systeminfo.xml page
+    * *prometheus_client*: Prometheus python client API
+    * *twisted*: Webserver
 3. Start the exporter with `python <path_to_project>/executable/main.py --config-file <path_to_config_yml>`
-4. Go to <hostname_of_exporter>:<exporter_port>/metrics to see the metrics.
+4. Go to `<hostname_of_exporter>:<exporter_port>/metrics` to see the metrics.
 
 Example output:
 ```
