@@ -103,3 +103,7 @@ tableau_server_process_status{machine="tableau.myhost.com",process="gateway",sta
 tableau_server_process_status{machine="tableau.myhost.com",process="gateway",status="Unknown"} 0.0
 tableau_server_process_status{machine="tableau.myhost.com",process="gateway",status="Unlicensed"} 0.0
 ```
+
+## Contribution Guidelines:
+
+Please feel free to open PRs or create Issues in this repository, we're happy to review or implement them.
