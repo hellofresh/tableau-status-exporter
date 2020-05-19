@@ -6,7 +6,7 @@
 #
 description: |
   Custom Prometheus exporter for Tableau Server.
-contact: dwh-platform@hellofresh.com
+contact: squad-data-infra@hellofresh.com
 known-name: tableau-status-exporter
 squad: data-infrastructure
 tribe: data-platform
