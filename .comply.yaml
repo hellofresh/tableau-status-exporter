@@ -8,10 +8,11 @@ description: |
   Custom Prometheus exporter for Tableau Server.
 contact: dwh-platform@hellofresh.com
 known-name: tableau-status-exporter
-squad: Data Platform
-tribe: Data Management
+squad: data-infrastructure
+tribe: data-platform
+jira-project: DINFRA
 # concourse-team: please-complete.please-complete
-slack-channel: "#squad-dwh-platform"
+slack-channel: "#squad-data-infra"
 labels:
 - monitoring
 # public_urls:
