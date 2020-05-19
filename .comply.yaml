@@ -10,7 +10,6 @@ contact: dwh-platform@hellofresh.com
 known-name: tableau-status-exporter
 squad: Data Platform
 tribe: Data Management
-jira-project: DINFRA
 # concourse-team: please-complete.please-complete
 slack-channel: "#squad-dwh-platform"
 labels:
