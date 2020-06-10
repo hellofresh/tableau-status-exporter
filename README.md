@@ -15,9 +15,9 @@ Reads and parses the /admin/systeminfo.xml page and exports the number of proces
     * *tableau_user* and *tableau_password*: a Tableau Server user with administrative privileges
     * *api_version*: REST API version for the Tableau Server version. See https://onlinehelp.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_versions.htm
     * *server_host*: Tableau Server hostname, starting with http(s)://
-    * *site*: The Tableau site to use
+    * *site*: The Tableau site to use (if empty, Default site is used)
     * *exporter_port*: Which port to use for the exporter's webserver
-    * *log_path*: Where to store logs
+    * *log_path* (optional): File to output logs to (if missing or empty, logs go to stdout)
 3. Install with `pip install <path_to_project>`. Dependencies:
     * *pyyaml*: YAML config processing
     * *requests*: Accessing the Tableau Server REST API (for login) and the systeminfo.xml page
