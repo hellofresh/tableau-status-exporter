@@ -12,10 +12,15 @@ if __name__ == '__main__':
     with open(args.config_file, "r") as config:
         conf = yaml.load(config)
 
-    logging.basicConfig(filename=conf['log_path'],
-                        filemode='a',
-                        format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                        datefmt='%H:%M:%S',
-                        level=logging.INFO)
+    if 'log_path' in conf and conf['log_path'] != '':
+        logging.basicConfig(filename=conf['log_path'],
+                            filemode='a',
+                            format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                            datefmt='%H:%M:%S',
+                            level=logging.INFO)
+    else:
+        logging.basicConfig(format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                            datefmt='%H:%M:%S',
+                            level=logging.INFO)
 
     start_webserver(conf)
