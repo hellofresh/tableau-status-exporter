@@ -16,11 +16,11 @@ if __name__ == '__main__':
         logging.basicConfig(filename=conf['log_path'],
                             filemode='a',
                             format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                            datefmt='%H:%M:%S',
+                            datefmt='%Y-%m-%d %H:%M:%S',
                             level=logging.INFO)
     else:
         logging.basicConfig(format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                            datefmt='%H:%M:%S',
+                            datefmt='%Y-%m-%d %H:%M:%S',
                             level=logging.INFO)
 
     start_webserver(conf)
