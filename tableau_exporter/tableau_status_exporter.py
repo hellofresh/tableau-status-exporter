@@ -3,7 +3,7 @@ import os
 import requests
 import logging
 from prometheus_client import generate_latest, REGISTRY
-from prometheus_client.core import GaugeMetricFamily
+from server_parser_status_metrics import TableauServerStatusParser
 from prometheus_client.twisted import MetricsResource
 from twisted.web.server import Site
 from twisted.web.resource import Resource
@@ -11,15 +11,6 @@ from twisted.internet import reactor
 import xml.etree.ElementTree as ET
 
 logger = logging.getLogger('Tableau exporter')
-
-STATUS_MAP = {
-    'Active': 0,
-    'Busy': 0,
-    'Passive': 0,
-    'Unlicensed': 0,
-    'Down': 0,
-    'Unknown': 0
-}
 
 class TokenManager(object):
     def __init__(self, user, password, site, host, api_version):
@@ -89,27 +80,7 @@ class TableauMetricsCollector(object):
             # refreshed token 3 times, no luck
             raise ValueError('Status check failed. XML response: {}'.format(x.text))
 
-        server_status = GaugeMetricFamily(
-          'tableau_server_process_status',
-          'Process status',
-          labels=['machine', 'process', 'status']
-        )
-
-        for machine in xml_response[0]:
-            machine_name = machine.attrib['name']
-            process_map = {}
-            for process in machine:
-                # init
-                if process.tag not in process_map:
-                    process_map[process.tag] = dict(STATUS_MAP)
-                # increment
-                process_map[process.tag][process.attrib['status']] += 1
-            for process in process_map:
-                for process_status in process_map[process]:
-                    server_status.add_metric([machine_name, process, process_status],
-                        process_map[process][process_status])
-
-        yield server_status
+        yield TableauServerStatusParser.tableau_server_parse_status_metrics(xml_response[0])
 
     def describe(self):
         return []
