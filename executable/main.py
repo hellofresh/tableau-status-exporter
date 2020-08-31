@@ -10,7 +10,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     with open(args.config_file, "r") as config:
-        conf = yaml.load(config)
+        conf = yaml.safe_load(config)
 
     if 'log_path' in conf and conf['log_path'] != '':
         logging.basicConfig(filename=conf['log_path'],

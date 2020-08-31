@@ -1,3 +1,10 @@
 config.yml
 *.pyc
 *.log
+te/*
+tableau_exporter.egg-info
+build/*
+*.pyc
+nosetests.xml
+*.ipynb
+.idea/*
