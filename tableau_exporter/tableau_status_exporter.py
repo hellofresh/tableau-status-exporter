@@ -10,7 +10,7 @@ from twisted.web.resource import Resource
 from twisted.internet import reactor
 import xml.etree.ElementTree as ET
 
-logger = logging.getLogger('Tableau exporter')
+logger = logging.getLogger(__name__)
 
 class TokenManager(object):
     def __init__(self, user, password, site, host, api_version):
