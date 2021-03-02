@@ -3,7 +3,7 @@ import os
 import requests
 import logging
 from prometheus_client import generate_latest, REGISTRY
-from server_parser_status_metrics import TableauServerStatusParser
+from tableau_exporter.server_parser_status_metrics import TableauServerStatusParser
 from prometheus_client.twisted import MetricsResource
 from twisted.web.server import Site
 from twisted.web.resource import Resource
