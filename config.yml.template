@@ -1,5 +1,8 @@
 tableau_user: ''
 tableau_password: ''
+# Personal access token alternative to user/password
+# tableau_token_name: ''
+# tableau_token_secret: ''
 api_version: '3.1'
 server_host: 'http://tableau-server.host'
 site: ''
