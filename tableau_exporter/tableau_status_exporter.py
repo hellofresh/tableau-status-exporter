@@ -13,7 +13,7 @@ import xml.etree.ElementTree as ET
 logger = logging.getLogger(__name__)
 
 class TokenManager(object):
-    def __init__(self, host, api_version, site, user, password, token_name, token_secret):
+    def __init__(self, user, password, site, host, api_version, token_name=None, token_secret=None):
         self._token = None
         self._api_version = api_version
         self.host = host
@@ -64,7 +64,7 @@ class TokenManager(object):
 
 class TableauMetricsCollector(object):
     '''collection of metrics for prometheus'''
-    def __init__(self, token_manager, verify_ssl=True):
+    def __init__(self, token_manager, verify_ssl=False):
         logger.info('Initializing metrics collector')
         self.token_manager = token_manager
         self.verify_ssl = verify_ssl
@@ -103,10 +103,9 @@ class TableauMetricsCollector(object):
 def start_webserver(conf):
 
     token_manager = TokenManager(
-        conf['server_host'], conf['api_version'], conf['site'],
-        conf.get('tableau_user'), conf.get('tableau_password'), conf.get('tableau_token_name'),
-        conf.get('tableau_token_secret'))
-    REGISTRY.register(TableauMetricsCollector(token_manager, verify_ssl=conf.get('verify_ssl', True)))
+        conf.get('tableau_user'), conf.get('tableau_password'), conf['site'], conf['server_host'], conf['api_version'],
+        token_name=conf.get('tableau_token_name'), token_secret=conf.get('tableau_token_secret'))
+    REGISTRY.register(TableauMetricsCollector(token_manager, verify_ssl=conf.get('verify_ssl', False)))
 
     # Start up the server to expose the metrics.
     root = Resource()

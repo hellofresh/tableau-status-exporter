@@ -19,7 +19,7 @@ Reads and parses the /admin/systeminfo.xml page and exports the number of proces
     * *site*: The Tableau site to use (if empty, Default site is used)
     * *exporter_port*: Which port to use for the exporter's webserver
     * *log_path* (optional): File to output logs to (if missing or empty, logs go to stdout)
-    * *verify_ssl* (optional): Verify SSL request when fetching status from Tableau, defaults to true.
+    * *verify_ssl* (optional): Verify SSL request when fetching status from Tableau, defaults to false.
 3. Install with `pip install <path_to_project>`. Dependencies:
     * *pyyaml*: YAML config processing
     * *requests*: Accessing the Tableau Server REST API (for login) and the systeminfo.xml page

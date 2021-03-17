@@ -36,5 +36,4 @@ class TestTableauServerStatusParser(unittest.TestCase):
         xml_response = self.init_default_check()
         got = TableauServerStatusParser.tableau_server_parse_status_metrics(xml_response=xml_response[0])
         expected = 'tableau_server_process_status'
-        print(expected)
         self.assertEqual(expected, got.name)
