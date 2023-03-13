@@ -2,6 +2,7 @@ import json
 import os
 import requests
 import logging
+import datetime
 from prometheus_client import generate_latest, REGISTRY
 from server_parser_status_metrics import TableauServerStatusParser
 from prometheus_client.twisted import MetricsResource
@@ -71,7 +72,8 @@ class TableauMetricsCollector(object):
 
     def collect(self):
         '''collect metrics'''
-
+        now = datetime.datetime.now()
+        print(now)
         check = '{}/admin/systeminfo.xml'.format(self.token_manager.host)
 
         # 3 retries
